@@ -14,3 +14,8 @@ export function randomLength(options: {
 
   return random(min, max);
 }
+
+export function indexedFn<T>(fn: (index: number) => T) {
+  let index = 1;
+  return (forceIndex?: number) => fn(forceIndex ?? index++);
+}
