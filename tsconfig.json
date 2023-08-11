@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "moduleResolution": "Node",
+    "target": "ESNext",
+    "lib": ["ESNext"],
+    "esModuleInterop": true,
+    "declaration": true,
+    "emitDeclarationOnly": true
+  },
+  "include": ["packages/*/lib"]
+}

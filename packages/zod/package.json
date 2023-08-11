@@ -1,0 +1,38 @@
+{
+  "name": "@tkint/shammer-zod",
+  "version": "0.0.0-alpha.0",
+  "description": "Shammer zod",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/shammer-zod.umd.cjs",
+  "unpkg": "./dist/shammer-zod.js",
+  "module": "./dist/shammer-zod.js",
+  "types": "./dist/shammer-zod.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/shammer-zod.js",
+      "require": "./dist/shammer-zod.umd.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tkint/shammer.git",
+    "directory": "packages/zod"
+  },
+  "author": "tkint",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkint/shammer/issues"
+  },
+  "homepage": "https://github.com/tkint/shammer",
+  "scripts": {
+    "test": "vitest",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@tkint/shammer": "workspace:*",
+    "zod": "^3.21.4"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "@tkint/shammer",
+  "version": "0.0.0-alpha.0",
+  "description": "Shammer",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/shammer.umd.cjs",
+  "unpkg": "./dist/shammer.js",
+  "module": "./dist/shammer.js",
+  "types": "./dist/shammer.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/shammer.js",
+      "require": "./dist/shammer.umd.cjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tkint/shammer.git",
+    "directory": "packages/core"
+  },
+  "author": "tkint",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkint/shammer/issues"
+  },
+  "homepage": "https://github.com/tkint/shammer",
+  "scripts": {
+    "test": "vitest",
+    "build": "vite build"
+  }
+}
