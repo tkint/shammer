@@ -1,6 +1,7 @@
-import { randomBoolean, randomValue } from "./index";
+import { randomValue } from "./arrays";
+import { randomBoolean } from "./booleans";
 
-export const Letters = [
+export const LETTERS = [
   "a",
   "b",
   "c",
@@ -28,7 +29,7 @@ export const Letters = [
   "y",
   "z",
 ] as const;
-export type Letter = (typeof Letters)[number];
+export type Letter = (typeof LETTERS)[number];
 
 export function randomLetter<
   TCase extends "random" | "upper" | "lower",
@@ -46,7 +47,7 @@ export function randomLetter(options?: {
   case?: "upper" | "lower" | "random";
   letters?: Letter[];
 }) {
-  const optLetters = options?.letters ?? Letters;
+  const optLetters = options?.letters ?? LETTERS;
   const optCase = options?.case ?? randomValue(["upper", "lower", "random"]);
 
   const letter = randomValue(optLetters);

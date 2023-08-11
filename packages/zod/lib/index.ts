@@ -1,6 +1,6 @@
 import {
-  Options,
-  getOptions,
+  ShammerOptions,
+  optionsOrDefault,
   randomBoolean,
   randomLength,
   randomNumber,
@@ -42,7 +42,7 @@ export const schamNativeEnum = <TEnum extends z.EnumLike>(
 
 export const schamObject = <T extends z.ZodAny>(
   schema: z.ZodObject<z.ZodRawShape>,
-  options?: Partial<Options>
+  options?: Partial<ShammerOptions>
 ): T =>
   mapValues(schema.shape, (fieldType) => {
     let realType: z.ZodType = fieldType;
@@ -55,9 +55,9 @@ export const schamObject = <T extends z.ZodAny>(
 
 export const schamArray = <T>(
   type: z.ZodArray<z.ZodType<T>>,
-  options?: Partial<Options>
+  options?: Partial<ShammerOptions>
 ): T[] => {
-  const { arrays } = getOptions(options);
+  const { arrays } = optionsOrDefault(options);
 
   let length: number;
 
@@ -95,12 +95,12 @@ export const schamArray = <T>(
 
 export const schamArrayOf = <T>(
   type: z.ZodType<T>,
-  options?: Partial<Options>
+  options?: Partial<ShammerOptions>
 ) => schamArray(z.array(type), options);
 
 export const scham = <T extends any>(
   type: z.ZodType<T>,
-  options?: Partial<Options>
+  options?: Partial<ShammerOptions>
 ): T => {
   let result: any;
 
@@ -125,10 +125,10 @@ export const scham = <T extends any>(
 
 export const builderOf = <TReturn>(
   schema: z.ZodType<TReturn>,
-  options?: Partial<Options>
+  options?: Partial<ShammerOptions>
 ): ((
-  override?: (options?: Partial<Options>) => Partial<TReturn>,
-  overrideOptions?: Partial<Options>
+  override?: (options?: Partial<ShammerOptions>) => Partial<TReturn>,
+  overrideOptions?: Partial<ShammerOptions>
 ) => TReturn) => {
   return (override, overrideOptions) => {
     const finalOptions = overrideOptions ?? options;
